@@ -1,0 +1,8 @@
+[SMTP]
+SMTP_HOST = smtp.gmail.com
+SMTP_PORT = 587
+; SMTP_USERNAME =
+; SMTP_PASSWORD =
+[EmailSettings]
+SUBJECT = Connecting for Potential Opportunities
+; BODY_TEMPLATE =
