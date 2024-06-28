@@ -90,26 +90,31 @@ def load_position():
     return position.get('row', 0), position.get('col', 0)
 
 
-input_filename = config['INPUT']['FILENAME']
-df = pd.read_excel(input_filename, header=None)
+def main():
+    input_filename = config['INPUT']['FILENAME']
+    df = pd.read_excel(input_filename, header=None)
 
-row, col = load_position()
+    row, col = load_position()
 
-# Iterate over each row and column in the DataFrame
-for i in range(row, len(df)):
-    for j in range(col, len(df.columns)):
-        save_position(i, j)
+    # Iterate over each row and column in the DataFrame
+    for i in range(row, len(df)):
+        for j in range(col, len(df.columns)):
+            save_position(i, j)
 
-        email_address = df.iloc[i, j]
-        try:
-            v = validate_email(email_address)
-            print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is a valid email address.")
-        except EmailNotValidError as e:
-            print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is not a valid email address.")
+            email_address = df.iloc[i, j]
+            try:
+                v = validate_email(email_address)
+                print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is a valid email address.")
+            except EmailNotValidError as e:
+                print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is not a valid email address.")
 
-        receiver_email = email_address
-        receiver_name = input("Enter the receiver's name: ")
+            receiver_email = email_address
+            receiver_name = input("Enter the receiver's name: ")
 
-        input("Press Enter to send the email...")
+            input("Press Enter to send the email...")
 
-        send_email(receiver_email, receiver_name)
+            # send_email(receiver_email, receiver_name)
+
+
+if __name__ == '__main__':
+    main()
