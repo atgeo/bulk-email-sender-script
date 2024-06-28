@@ -90,7 +90,8 @@ def load_position():
     return position.get('row', 0), position.get('col', 0)
 
 
-df = pd.read_excel('EL3.xlsx', header=None)
+input_filename = config['EmailSettings']['BODY_TEMPLATE']
+df = pd.read_excel(input_filename, header=None)
 
 row, col = load_position()
 
