@@ -6,3 +6,4 @@ SMTP_PORT = 587
 [EmailSettings]
 SUBJECT = Connecting for Potential Opportunities
 ; BODY_TEMPLATE =
+; ATTACHMENT_FILENAME =

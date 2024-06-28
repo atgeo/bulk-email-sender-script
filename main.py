@@ -40,7 +40,7 @@ def send_email(receiver_email, receiver_name):
     message.attach(MIMEText(body, "html"))
 
     # Attach a file (example: resume.pdf)
-    filename = 'Resume - Georges Kmeid.pdf'
+    filename = config['EmailSettings']['ATTACHMENT_FILENAME']
     attachment = open(filename, 'rb')
 
     part = MIMEBase('application', 'octet-stream')
@@ -104,7 +104,7 @@ for i in range(row, len(df)):
         except EmailNotValidError as e:
             print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is not a valid email address.")
 
-        receiver_email = "georgesk117@gmail.com"
+        receiver_email = email_address
         receiver_name = input("Enter the receiver's name: ")
 
         save_position(i, j)
