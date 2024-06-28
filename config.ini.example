@@ -1,11 +1,11 @@
 [INPUT]
-; FILENAME =
+FILENAME = file.xlsx
 [SMTP]
 SMTP_HOST = smtp.gmail.com
 SMTP_PORT = 587
-; SMTP_USERNAME =
-; SMTP_PASSWORD =
+SMTP_USERNAME = name@example.com
+SMTP_PASSWORD = smtp_password
 [EmailSettings]
 SUBJECT = Connecting for Potential Opportunities
-; BODY_TEMPLATE =
-; ATTACHMENT_FILENAME =
+BODY_TEMPLATE = Hi ${name},<br><br>Hope you're doing well.
+ATTACHMENT_FILENAME = Resume.pdf
