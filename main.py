@@ -90,7 +90,7 @@ def load_position():
     return position.get('row', 0), position.get('col', 0)
 
 
-input_filename = config['EmailSettings']['BODY_TEMPLATE']
+input_filename = config['INPUT']['FILENAME']
 df = pd.read_excel(input_filename, header=None)
 
 row, col = load_position()
@@ -98,6 +98,8 @@ row, col = load_position()
 # Iterate over each row and column in the DataFrame
 for i in range(row, len(df)):
     for j in range(col, len(df.columns)):
+        save_position(i, j)
+
         email_address = df.iloc[i, j]
         try:
             v = validate_email(email_address)
@@ -107,8 +109,6 @@ for i in range(row, len(df)):
 
         receiver_email = email_address
         receiver_name = input("Enter the receiver's name: ")
-
-        save_position(i, j)
 
         input("Press Enter to send the email...")
 
