@@ -103,7 +103,7 @@ def main():
 
             email_address = df.iloc[i, j]
             try:
-                v = validate_email(email_address)
+                validate_email(email_address)
                 print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is a valid email address.")
             except EmailNotValidError as e:
                 print(f"Row {i + 1}, Column {chr(ord('A') + j)}: {email_address} is not a valid email address.")
@@ -113,7 +113,7 @@ def main():
 
             input("Press Enter to send the email...")
 
-            # send_email(receiver_email, receiver_name)
+            send_email(receiver_email, receiver_name)
 
 
 if __name__ == '__main__':
