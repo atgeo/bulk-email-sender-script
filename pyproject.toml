@@ -1,0 +1,13 @@
+[project]
+name = "send-email"
+version = "0.1.0"
+description = "Bulk email sender using Gmail's SMTP server"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=3.0",
+    "email-validator",
+    "openpyxl",
+]
+
+[project.scripts]
+send-email = "main:main"
