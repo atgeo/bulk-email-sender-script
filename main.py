@@ -70,7 +70,8 @@ def main() -> None:
     row, col = load_position()
 
     for i in range(row, len(df)):
-        for j in range(col, len(df.columns)):
+        start_col = col if i == row else 0
+        for j in range(start_col, len(df.columns)):
             save_position(i, j)
 
             email_address = df.iloc[i, j]
